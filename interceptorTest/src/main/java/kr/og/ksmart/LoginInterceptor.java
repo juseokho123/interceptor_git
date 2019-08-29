@@ -1,5 +1,7 @@
 package kr.og.ksmart;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -26,7 +28,19 @@ public class LoginInterceptor implements HandlerInterceptor {
     	logger.error("error - {}", "호출완료");
     	logger.warn("warn - {}", "호출완료");
     	logger.trace("trace - {}", "호출완료");
-        return true;
+    	
+    	String sessionCheck = request.getParameter("sessionCheck");
+    	if("Y".equals(sessionCheck)) {
+    		return true;
+    	}else {
+    		try {
+    			response.sendRedirect("/");
+    		}catch(IOException e) {
+    			e.printStackTrace();
+    		}
+    		return false;
+    	}
+        
     }    
    
 }
