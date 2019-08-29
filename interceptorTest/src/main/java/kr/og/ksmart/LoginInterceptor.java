@@ -20,9 +20,12 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) {
- 		
-    	logger.info("LoginInterceptor - {}", "호출완료");
-    	
+// 		/logger.info("LoginInterceptor - {}", "호출완료");
+    	logger.info("info - {}", "호출완료");
+    	logger.debug("debug - {}", "호출완료");
+    	logger.error("error - {}", "호출완료");
+    	logger.warn("warn - {}", "호출완료");
+    	logger.trace("trace - {}", "호출완료");
         return true;
     }    
    

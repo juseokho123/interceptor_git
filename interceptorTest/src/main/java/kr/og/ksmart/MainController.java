@@ -10,4 +10,9 @@ public class MainController {
 		
 		return "/index.html";
 	}
+	@GetMapping(value="/login")
+	public String login() {
+		
+		return "/login.html";
+	}
 }
