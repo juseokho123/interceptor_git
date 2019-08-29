@@ -29,12 +29,17 @@ public class LoginInterceptor implements HandlerInterceptor {
     	logger.warn("warn - {}", "호출완료");
     	logger.trace("trace - {}", "호출완료");
     	
-    	String sessionCheck = request.getParameter("sessionCheck");
-    	if("Y".equals(sessionCheck)) {
+    	HttpSession session = request.getSession();
+    	String memberId =(String) session.getAttribute("memberId");
+    	    	
+    	//명확한 String 개체가 앞에 있어야 하고 변수는 뒤쪽으로 와야된다. 앞에는 null이 떨어지지 않는 명확한 객체가 꼭 와야한다.
+    	if(memberId != null) {
+    		//true 정상적으로 도달하는 페이지로 감
     		return true;
     	}else {
     		try {
-    			response.sendRedirect("/notPermission");
+    			//실패 했을경우 지정한페이지로 보내준다.
+    			response.sendRedirect("/login");
     		}catch(IOException e) {
     			e.printStackTrace();
     		}

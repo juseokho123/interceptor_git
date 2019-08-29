@@ -26,10 +26,12 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-				
+		//제외 처리		
 		notLoadList.add("/login");
 		notLoadList.add("/loginProcess");
 		notLoadList.add("/logoutProcess");
+		notLoadList.add("/");
+		notLoadList.add("/notPermission");
 		
 		registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns(notLoadList);
 			
