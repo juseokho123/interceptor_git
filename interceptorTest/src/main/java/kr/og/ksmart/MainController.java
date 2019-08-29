@@ -15,4 +15,14 @@ public class MainController {
 		
 		return "/login.html";
 	}
+	@GetMapping(value="/notPermission")
+	public String notPermission() {
+		
+		return "/notPermission.html";
+	}
+	@GetMapping(value="/main")
+	public String main2() {
+		
+		return "/main.html";
+	}
 }

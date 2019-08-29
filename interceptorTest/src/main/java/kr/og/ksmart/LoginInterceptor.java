@@ -34,7 +34,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     		return true;
     	}else {
     		try {
-    			response.sendRedirect("/");
+    			response.sendRedirect("/notPermission");
     		}catch(IOException e) {
     			e.printStackTrace();
     		}

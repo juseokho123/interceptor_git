@@ -30,6 +30,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		notLoadList.add("/login");
 		notLoadList.add("/loginProcess");
 		notLoadList.add("/logoutProcess");
+		
 		registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns(notLoadList);
 			
 		
